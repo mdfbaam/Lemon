@@ -2,7 +2,7 @@
  *
  * This file is a part of LEMON, a generic C++ optimization library
  *
- * Copyright (C) 2003-2007
+ * Copyright (C) 2003-2008
  * Egervary Jeno Kombinatorikus Optimalizalasi Kutatocsoport
  * (Egervary Research Group on Combinatorial Optimization, EGRES).
  *
@@ -41,13 +41,14 @@ namespace lemon {
     class ReadMap
     {
     public:
-      /// Map's key type.
+      /// The key type of the map.
       typedef K Key;    
-      /// Map's value type. (The type of objects associated with the keys).
+      /// The value type of the map. (The type of objects associated with the keys).
       typedef T Value;
 
       /// Returns the value associated with a key.
 
+      /// Returns the value associated with a key.
       /// \bug Value shouldn't need to be default constructible.
       ///
       Value operator[](const Key &) const {return Value();}
@@ -81,9 +82,9 @@ namespace lemon {
     class WriteMap
     {
     public:
-      /// Map's key type.
+      /// The key type of the map.
       typedef K Key;    
-      /// Map's value type. (The type of objects associated with the keys).
+      /// The value type of the map. (The type of objects associated with the keys).
       typedef T Value;
 
       /// Sets the value associated with a key.
@@ -113,18 +114,18 @@ namespace lemon {
       };
     };
 
-    /// Read/Writable map concept
+    /// Read/writable map concept
     
     /// Read/writable map concept.
     ///
     template<typename K, typename T>
     class ReadWriteMap : public ReadMap<K,T>,
-			    public WriteMap<K,T>
+			 public WriteMap<K,T>
     {
     public:
-      /// Map's key type.
+      /// The key type of the map.
       typedef K Key;    
-      /// Map's value type. (The type of objects associated with the keys).
+      /// The value type of the map. (The type of objects associated with the keys).
       typedef T Value;
 
       /// Returns the value associated with a key.
@@ -146,33 +147,33 @@ namespace lemon {
     
     /// Dereferable map concept.
     ///
+    /// \todo Rethink this concept.
     template<typename K, typename T, typename R, typename CR>
     class ReferenceMap : public ReadWriteMap<K,T>
     {
     public:
       /// Tag for reference maps.
       typedef True ReferenceMapTag;
-      /// Map's key type.
+      /// The key type of the map.
       typedef K Key;    
-      /// Map's value type. (The type of objects associated with the keys).
+      /// The value type of the map. (The type of objects associated with the keys).
       typedef T Value;
-      /// Map's reference type.
+      /// The reference type of the map.
       typedef R Reference;
-      /// Map's const reference type.
+      /// The const reference type of the map.
       typedef CR ConstReference;
 
     protected:
       Value tmp;
     public:
 
-      ///Returns a reference to the value associated to a key.
+      ///Returns a reference to the value associated with a key.
       Reference operator[](const Key &) { return tmp; }
-      ///Returns a const reference to the value associated to a key.
+      ///Returns a const reference to the value associated with a key.
       ConstReference operator[](const Key &) const { return tmp; }
       /// Sets the value associated with a key.
       void set(const Key &k,const Value &t) { operator[](k)=t; }
 
-      /// \todo Rethink this concept. 
       template<typename _ReferenceMap>
       struct ReferenceMapConcept {
 

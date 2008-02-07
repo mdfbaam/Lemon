@@ -2,7 +2,7 @@
  *
  * This file is a part of LEMON, a generic C++ optimization library
  *
- * Copyright (C) 2003-2007
+ * Copyright (C) 2003-2008
  * Egervary Jeno Kombinatorikus Optimalizalasi Kutatocsoport
  * (Egervary Research Group on Combinatorial Optimization, EGRES).
  *
@@ -36,25 +36,21 @@ namespace lemon {
   ///handle the comparison of numbers that are obtained
   ///as a result of a probably inexact computation.
   ///
-  ///Tolerance is a class to provide a basic way to
+  ///\ref Tolerance is a class to provide a basic way to
   ///handle the comparison of numbers that are obtained
   ///as a result of a probably inexact computation.
   ///
   ///This is an abstract class, it should be specialized for all numerical
-  ///data types. These specialized classes like \ref Tolerance\<double\>
+  ///data types. These specialized classes like \ref Tolerance<double>
   ///may offer additional tuning parameters.
   ///
   ///\sa Tolerance<float>
   ///\sa Tolerance<double>
   ///\sa Tolerance<long double>
   ///\sa Tolerance<int>
-#if defined __GNUC__ && !defined __STRICT_ANSI__  
   ///\sa Tolerance<long long int>
-#endif
   ///\sa Tolerance<unsigned int>
-#if defined __GNUC__ && !defined __STRICT_ANSI__  
   ///\sa Tolerance<unsigned long long int>
-#endif
 
   template<class T>
   class Tolerance
@@ -63,7 +59,7 @@ namespace lemon {
     typedef T Value;
 
     ///\name Comparisons
-    ///The concept is that these bool functions return with \c true only if
+    ///The concept is that these bool functions return \c true only if
     ///the related comparisons hold even if some numerical error appeared
     ///during the computations.
 
@@ -91,9 +87,9 @@ namespace lemon {
   };
 
 
-  ///Float specialization of \ref Tolerance.
+  ///Float specialization of Tolerance.
 
-  ///Float specialization of \ref Tolerance.
+  ///Float specialization of Tolerance.
   ///\sa Tolerance
   ///\relates Tolerance
   template<>
@@ -107,21 +103,21 @@ namespace lemon {
 
     ///Constructor setting the epsilon tolerance to the default value.
     Tolerance() : _epsilon(def_epsilon) {}
-    ///Constructor setting the epsilon tolerance.
+    ///Constructor setting the epsilon tolerance to the given value.
     Tolerance(float e) : _epsilon(e) {}
 
-    ///Return the epsilon value.
+    ///Returns the epsilon value.
     Value epsilon() const {return _epsilon;}
-    ///Set the epsilon value.
+    ///Sets the epsilon value.
     void epsilon(Value e) {_epsilon=e;}
 
-    ///Return the default epsilon value.
+    ///Returns the default epsilon value.
     static Value defaultEpsilon() {return def_epsilon;}
-    ///Set the default epsilon value.
+    ///Sets the default epsilon value.
     static void defaultEpsilon(Value e) {def_epsilon=e;}
 
     ///\name Comparisons
-    ///See class Tolerance for more details.
+    ///See \ref Tolerance for more details.
 
     ///@{
 
@@ -142,9 +138,9 @@ namespace lemon {
     static Value zero() {return 0;}
   };
 
-  ///Double specialization of \ref Tolerance.
+  ///Double specialization of Tolerance.
 
-  ///Double specialization of \ref Tolerance.
+  ///Double specialization of Tolerance.
   ///\sa Tolerance
   ///\relates Tolerance
   template<>
@@ -158,21 +154,21 @@ namespace lemon {
 
     ///Constructor setting the epsilon tolerance to the default value.
     Tolerance() : _epsilon(def_epsilon) {}
-    ///Constructor setting the epsilon tolerance.
+    ///Constructor setting the epsilon tolerance to the given value.
     Tolerance(double e) : _epsilon(e) {}
 
-    ///Return the epsilon value.
+    ///Returns the epsilon value.
     Value epsilon() const {return _epsilon;}
-    ///Set the epsilon value.
+    ///Sets the epsilon value.
     void epsilon(Value e) {_epsilon=e;}
 
-    ///Return the default epsilon value.
+    ///Returns the default epsilon value.
     static Value defaultEpsilon() {return def_epsilon;}
-    ///Set the default epsilon value.
+    ///Sets the default epsilon value.
     static void defaultEpsilon(Value e) {def_epsilon=e;}
 
     ///\name Comparisons
-    ///See class Tolerance for more details.
+    ///See \ref Tolerance for more details.
 
     ///@{
 
@@ -193,9 +189,9 @@ namespace lemon {
     static Value zero() {return 0;}
   };
 
-  ///Long double specialization of \ref Tolerance.
+  ///Long double specialization of Tolerance.
 
-  ///Long double specialization of \ref Tolerance.
+  ///Long double specialization of Tolerance.
   ///\sa Tolerance
   ///\relates Tolerance
   template<>
@@ -209,21 +205,21 @@ namespace lemon {
 
     ///Constructor setting the epsilon tolerance to the default value.
     Tolerance() : _epsilon(def_epsilon) {}
-    ///Constructor setting the epsilon tolerance.
+    ///Constructor setting the epsilon tolerance to the given value.
     Tolerance(long double e) : _epsilon(e) {}
 
-    ///Return the epsilon value.
+    ///Returns the epsilon value.
     Value epsilon() const {return _epsilon;}
-    ///Set the epsilon value.
+    ///Sets the epsilon value.
     void epsilon(Value e) {_epsilon=e;}
 
-    ///Return the default epsilon value.
+    ///Returns the default epsilon value.
     static Value defaultEpsilon() {return def_epsilon;}
-    ///Set the default epsilon value.
+    ///Sets the default epsilon value.
     static void defaultEpsilon(Value e) {def_epsilon=e;}
 
     ///\name Comparisons
-    ///See class Tolerance for more details.
+    ///See \ref Tolerance for more details.
 
     ///@{
 
@@ -244,9 +240,9 @@ namespace lemon {
     static Value zero() {return 0;}
   };
 
-  ///Integer specialization of \ref Tolerance.
+  ///Integer specialization of Tolerance.
 
-  ///Integer specialization of \ref Tolerance.
+  ///Integer specialization of Tolerance.
   ///\sa Tolerance
   template<>
   class Tolerance<int>
@@ -277,7 +273,7 @@ namespace lemon {
     static Value zero() {return 0;}
   };
 
-  ///Unsigned integer specialization of \ref Tolerance.
+  ///Unsigned integer specialization of Tolerance.
 
   ///Unsigned integer specialization of \ref Tolerance.
   ///\sa Tolerance
@@ -311,9 +307,9 @@ namespace lemon {
   };
   
 
-  ///Long integer specialization of \ref Tolerance.
+  ///Long integer specialization of Tolerance.
 
-  ///Long integer specialization of \ref Tolerance.
+  ///Long integer specialization of Tolerance.
   ///\sa Tolerance
   template<>
   class Tolerance<long int>
@@ -344,7 +340,7 @@ namespace lemon {
     static Value zero() {return 0;}
   };
 
-  ///Unsigned long integer specialization of \ref Tolerance.
+  ///Unsigned long integer specialization of Tolerance.
 
   ///Unsigned long integer specialization of \ref Tolerance.
   ///\sa Tolerance
@@ -379,7 +375,7 @@ namespace lemon {
 
 #if defined __GNUC__ && !defined __STRICT_ANSI__
 
-  ///Long long integer specialization of \ref Tolerance.
+  ///Long long integer specialization of Tolerance.
 
   ///Long long integer specialization of \ref Tolerance.
   ///\warning This class (more exactly, type <tt>long long</tt>)
@@ -414,7 +410,7 @@ namespace lemon {
     static Value zero() {return 0;}
   };
 
-  ///Unsigned long long integer specialization of \ref Tolerance.
+  ///Unsigned long long integer specialization of Tolerance.
 
   ///Unsigned long long integer specialization of \ref Tolerance.
   ///\warning This class (more exactly, type <tt>unsigned long long</tt>)

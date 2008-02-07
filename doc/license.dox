@@ -16,14 +16,10 @@
  *
  */
 
-///\file
-///\brief Instantiation of the Random class.
+/**
 
-#include <lemon/random.h>
+\page license License Terms
 
-namespace lemon {
-  /// \brief Global random number generator instance
-  ///
-  /// A global Mersenne Twister random number generator instance.
-  Random rnd;
-}
+\verbinclude LICENSE
+
+*/

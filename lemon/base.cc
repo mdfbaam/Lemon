@@ -2,7 +2,7 @@
  *
  * This file is a part of LEMON, a generic C++ optimization library
  *
- * Copyright (C) 2003-2007
+ * Copyright (C) 2003-2008
  * Egervary Jeno Kombinatorikus Optimalizalasi Kutatocsoport
  * (Egervary Research Group on Combinatorial Optimization, EGRES).
  *
@@ -17,7 +17,7 @@
  */
 
 ///\file
-///\brief Some basic non inline function and static global data.
+///\brief Some basic non-inline functions and static global data.
 
 #include<lemon/tolerance.h>
 #include<lemon/bits/invalid.h>
