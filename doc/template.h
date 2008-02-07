@@ -16,14 +16,7 @@
  *
  */
 
-///\file
-///\brief Instantiation of the Random class.
+#ifndef LEMON_TEMPLATE_H
+#define LEMON_TEMPLATE_H
 
-#include <lemon/random.h>
-
-namespace lemon {
-  /// \brief Global random number generator instance
-  ///
-  /// A global Mersenne Twister random number generator instance.
-  Random rnd;
-}
+#endif // LEMON_TEMPLATE_H

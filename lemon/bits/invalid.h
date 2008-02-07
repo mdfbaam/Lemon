@@ -2,7 +2,7 @@
  *
  * This file is a part of LEMON, a generic C++ optimization library
  *
- * Copyright (C) 2003-2007
+ * Copyright (C) 2003-2008
  * Egervary Jeno Kombinatorikus Optimalizalasi Kutatocsoport
  * (Egervary Research Group on Combinatorial Optimization, EGRES).
  *
@@ -26,6 +26,7 @@ namespace lemon {
 
   /// \brief Dummy type to make it easier to create invalid iterators.
   ///
+  /// Dummy type to make it easier to create invalid iterators.
   /// See \ref INVALID for the usage.
   struct Invalid {
   public:

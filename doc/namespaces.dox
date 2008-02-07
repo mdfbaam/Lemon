@@ -16,14 +16,15 @@
  *
  */
 
-///\file
-///\brief Instantiation of the Random class.
+/// The namespace of LEMON
 
-#include <lemon/random.h>
-
+/// The namespace of LEMON
+///
 namespace lemon {
-  /// \brief Global random number generator instance
+
+  /// The namespace of LEMON concepts and concept checking classes
+
+  /// The namespace of LEMON concepts and concept checking classes
   ///
-  /// A global Mersenne Twister random number generator instance.
-  Random rnd;
+  namespace concepts {}
 }
