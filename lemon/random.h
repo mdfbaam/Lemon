@@ -67,9 +67,10 @@
 #include <vector>
 
 #include <ctime>
-#include <cmath>
 
+#include <lemon/math.h>
 #include <lemon/dim2.h>
+
 ///\ingroup misc
 ///\file
 ///\brief Mersenne Twister random number generator
@@ -254,7 +255,7 @@ namespace lemon {
             curr[length - shift] ^ mask[curr[-1] & 1ul];
           --curr;
         }
-        curr[0] = (((curr[0] & hiMask) | (curr[length - 1] & loMask)) >> 1) ^
+        state[0] = (((state[0] & hiMask) | (curr[length - 1] & loMask)) >> 1) ^
           curr[length - shift] ^ mask[curr[length - 1] & 1ul];
 
       }
@@ -759,7 +760,7 @@ namespace lemon {
     {
       double xi,nu;
       const double delta = k-std::floor(k);
-      const double v0=M_E/(M_E-delta);
+      const double v0=E/(E-delta);
       do {
 	double V0=1.0-real<double>();
 	double V1=1.0-real<double>();
