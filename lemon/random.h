@@ -575,6 +575,26 @@ namespace lemon {
       return *this;
     }
 
+    /// \brief Seeding random sequence
+    ///
+    /// Seeding the random sequence. The current number type will be
+    /// converted to the architecture word type.
+    template <typename Number>
+    void seed(Number seed) { 
+      _random_bits::Initializer<Number, Word>::init(core, seed);
+    }
+
+    /// \brief Seeding random sequence
+    ///
+    /// Seeding the random sequence. The given range should contain
+    /// any number type and the numbers will be converted to the
+    /// architecture word type.
+    template <typename Iterator>
+    void seed(Iterator begin, Iterator end) { 
+      typedef typename std::iterator_traits<Iterator>::value_type Number;
+      _random_bits::Initializer<Number, Word>::init(core, begin, end);
+    }
+
     /// \brief Returns a random real number from the range [0, 1)
     ///
     /// It returns a random real number from the range [0, 1). The
@@ -801,6 +821,29 @@ namespace lemon {
     double pareto(double k,double x_min)
     {
       return exponential(gamma(k,1.0/x_min));
+    }  
+      
+    /// Poisson distribution
+
+    /// This function generates a Poisson distribution random number with
+    /// parameter \c lambda.
+    /// 
+    /// The probability mass function of this distribusion is
+    /// \f[ \frac{e^{-\lambda}\lambda^k}{k!} \f]
+    /// \note The algorithm is taken from the book of Donald E. Knuth titled
+    /// ''Seminumerical Algorithms'' (1969). Its running time is linear in the
+    /// return value.
+    
+    int poisson(double lambda)
+    {
+      const double l = std::exp(-lambda);
+      int k=0;
+      double p = 1.0;
+      do {
+	k++;
+	p*=real<double>();
+      } while (p>=l);
+      return k-1;
     }  
       
     ///@}
